@@ -3,12 +3,11 @@ package com.example.thenewsflash.repository
 import com.example.thenewsflash.api.RetrofitInstance
 import com.example.thenewsflash.db.ArticleDatabase
 import com.example.thenewsflash.models.Article
-import retrofit2.http.Query
 
 class NewsRepository(val db: ArticleDatabase) {
 
-    suspend fun getHeadlines(countryCode:String, pageNumber: Int) =
-        RetrofitInstance.api.getHeadLines(countryCode, pageNumber)
+    suspend fun getHeadlines(countryCode: String, pageNumber: Int, category: String) =
+        RetrofitInstance.api.getHeadLines(countryCode, pageNumber, category)
 
     suspend fun searchNews(searchQuery: String, pageNumber: Int) =
         RetrofitInstance.api.searchForNews(searchQuery, pageNumber)
